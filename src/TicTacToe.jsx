@@ -44,11 +44,11 @@ let status
     if(winner ==="Draw"){
        status = "It is draw";
     }else if(winner){
-       status = `${winner} wins`;
+       status = `${winner} wins the game`;
     }else{
        status = `Next Player ${isNext ? "X": "O"} `
     }
-    
+
   const handleReset =()=>{
       setTextContent(initial)
       setWinner(null)
@@ -60,7 +60,8 @@ let status
     <p>{status}</p>
     <div className="btn-container" >
         {textContent.map((value, i)=>{
-            return <button key={i} onClick={()=>handleClick(i)} >{value}</button>
+            return <button key={i} onClick={()=>handleClick(i)}
+            style={{fontSize:'1.5rem', width:'70px' , height:'70px'}} >{value}</button>
         })}
     </div>
     <button onClick={handleReset}>Reset</button>
