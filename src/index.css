@@ -72,10 +72,9 @@ button:focus-visible {
   transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
 }
 
-
  .toggle-content.visible {
   opacity: 1;
-  max-height: 200px; /* Adjust as needed to fit your text */
+  max-height: 100px;
 }
 @media (prefers-color-scheme: light) {
   :root {

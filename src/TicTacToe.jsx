@@ -6,7 +6,7 @@ export const TicTacToe =()=>{
     const [textContent,setTextContent] = useState(initial)
     const [isNext, setIsNext] = useState(true)
     const [winner, setWinner] = useState(null)
-    // const [toggled,setToggled] = useState(false)
+     const [toggled,setToggled] = useState(false)
 
     
     const gameWinner = (squares)=>{
@@ -59,12 +59,12 @@ let status
       
   }
 
-//   const displayDetail =()=>{
-//     setToggled(!toggled)
-//   }
+  const displayDetail =()=>{
+    setToggled(!toggled)
+  }
     return (<>
     <h1>Tic Tac Toe</h1>
-    < ToggleInfo/>
+    < ToggleInfo onclick={displayDetail} toggled={toggled}/>
     <p>{status}</p>
     <div className="btn-container" >
         {textContent.map((value, i)=>{
