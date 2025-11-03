@@ -1,10 +1,12 @@
 import { useState } from "react"
+import { ToggleInfo } from "./ToggleInfo"
 
 export const TicTacToe =()=>{
     const initial = Array(9).fill(null)
     const [textContent,setTextContent] = useState(initial)
     const [isNext, setIsNext] = useState(true)
     const [winner, setWinner] = useState(null)
+    const [toggled,setToggled] = useState(false)
 
     
     const gameWinner = (squares)=>{
@@ -21,8 +23,9 @@ export const TicTacToe =()=>{
     }
     
   const handleClick = (index)=>{
- 
-    
+     //prevent moves if the btn already has a content (X/O)
+     // or there is already a winner(game ended)
+     if(textContent[index]|| winner) return
     const newText = textContent.slice()
   newText[index] = isNext? "X":"O";
   setTextContent(newText)
@@ -44,7 +47,7 @@ let status
     if(winner ==="Draw"){
        status = "It is draw";
     }else if(winner){
-       status = `${winner} wins the game`;
+       status = `Winner: ${winner}`;
     }else{
        status = `Next Player ${isNext ? "X": "O"} `
     }
@@ -55,8 +58,13 @@ let status
       setIsNext(true)
       
   }
+
+  const displayDetail =()=>{
+    setToggled(!toggled)
+  }
     return (<>
     <h1>Tic Tac Toe</h1>
+    < ToggleInfo  onClick={displayDetail} toggled={toggled}/>
     <p>{status}</p>
     <div className="btn-container" >
         {textContent.map((value, i)=>{
