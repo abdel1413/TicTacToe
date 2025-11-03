@@ -1,9 +1,21 @@
-export const ToggleInfo =(props)=>{
+import { useState } from "react";
+
+export const ToggleInfo =()=>{
+    const [toggled, setToggled] =useState(false)
+   
+    const   handleToggle = ()=>{
+        setToggled(!toggled)
+      }
+  
     return<>
-    <button onClick={props.onClick}>{ props.toggled? "Close ": "Details"}</button>
-    { props.toggled &&(
-    <p className="instruction"> To win the game, you need to have same player in three rows
+    <button onClick={handleToggle} >{toggled? "Close " : "Details"}</button>
+    { 
+        <div className={`toggle-content ${toggled ? "visible":"hidden"}`}>
+        <p> To win the game, you need to have same player in three rows
         either vertically or horizontally or obliquely</p>
-        )}
+        </div>
+
+        }
+
     </>
 }

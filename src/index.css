@@ -65,6 +65,18 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+ .toggle-content {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
+}
+
+
+ .toggle-content.visible {
+  opacity: 1;
+  max-height: 200px; /* Adjust as needed to fit your text */
+}
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
