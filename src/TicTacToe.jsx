@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { ToggleInfo } from "./ToggleInfo"
+import { ResetBtn } from "./assets/ResetBtn"
 
 export const TicTacToe =()=>{
     const initial = Array(9).fill(null)
@@ -26,24 +27,28 @@ export const TicTacToe =()=>{
      //prevent moves if the btn already has a content (X/O)
      // or there is already a winner(game ended)
      if(textContent[index]|| winner) return
-    const newText = textContent.slice()
-  newText[index] = isNext? "X":"O";
-  setTextContent(newText)
 
-  const winning = gameWinner(newText)
+    //copy the text content to avoid manipulating the original content
+    const textContentCopied = textContent.slice()
+
+  textContentCopied[index] = isNext? "X":"O";
+
+  setTextContent(textContentCopied)
+
+  const winning = gameWinner(textContentCopied)
    
 
     
     if(winning){
         setWinner(winning)
-    }else if(newText.every(Boolean)){
+    }else if(textContentCopied.every(Boolean)){
         setWinner("Draw")
     }else{
         setIsNext(!isNext)
     }
 }
+
 let status 
-   
     if(winner ==="Draw"){
        status = "It is draw";
     }else if(winner){
@@ -72,6 +77,6 @@ let status
             style={{fontSize:'1.5rem', width:'70px' , height:'70px'}} >{value}</button>
         })}
     </div>
-    <button onClick={handleReset}>Reset</button>
-    </>)
+        <ResetBtn  onclick={handleReset}/>
+    </>) 
 }

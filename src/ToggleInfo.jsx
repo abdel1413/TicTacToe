@@ -1,14 +1,8 @@
-//import { useState } from "react";
 
 export const ToggleInfo =({onclick, toggled})=>{
-    // const [toggled, setToggled] =useState(false)
-   
-    // const   handleToggle = ()=>{
-    //     setToggled(!toggled)
-    //   }
-  
+
     return<>
-    <button onClick={onclick}>{toggled? "Close " : "Details"}</button>
+    <button onClick={onclick} className="toggle-info">{toggled? "Close " : "Details"}</button>
     { 
       <div className={`toggle-content ${toggled ? "visible":"hidden"}`}>
         <p> To win the game, you need to have same player in three rows

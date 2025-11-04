@@ -48,6 +48,7 @@ h1 {
   border: 1px solid blue;
 }
 button {
+  
   border-radius: 8px;
   padding: 0.6em 1.2em;
   font-size: 1em;
@@ -64,7 +65,12 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
+.toggle-info{
+  border:none
+}
+.toggle-info:hover{
+  border: 1px solid #646cff;
+}
  .toggle-content {
   opacity: 0;
   max-height: 0;
