@@ -9,7 +9,6 @@ export const TicTacToe =()=>{
     const [winner, setWinner] = useState(null)
      const [toggled,setToggled] = useState(false)
 
-    
     const gameWinner = (squares)=>{
 
         const possibleWinnings = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
@@ -37,8 +36,6 @@ export const TicTacToe =()=>{
 
   const winning = gameWinner(textContentCopied)
    
-
-    
     if(winning){
         setWinner(winning)
     }else if(textContentCopied.every(Boolean)){
@@ -47,7 +44,6 @@ export const TicTacToe =()=>{
         setIsNext(!isNext)
     }
 }
-
 let status 
     if(winner ==="Draw"){
        status = "It is draw";
@@ -63,7 +59,6 @@ let status
       setIsNext(true)
       
   }
-
   const displayDetail =()=>{
     setToggled(!toggled)
   }
